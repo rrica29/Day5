@@ -1,0 +1,230 @@
+git clone https://github.com/rivancorp/secdevops
+
+https://web.postman.co/workspace/dc485d93-6bf9-40be-8fc2-d31186710b5d/overview
+ricamorarussell
+Engineer1!
+
+Open R1 R2 R3 
+208.8.8.11-13
+
+Docker - VMware inside VMware
+
+====
+
+Open Dec7 file
+Open 
+
+R1#guestshell run python 
+Python 2.7.5 (default, Jun 17 2014, 18:11:42) 
+[GCC 4.8.2 20140120 (Red Hat 4.8.2-16)] on linux2
+Type "help", "copyright", "credits" or "license" for more information.
+
+R1#guestshell run bash
+[guestshell@guestshell ~]$ 
+[guestshell@guestshell ~]$ sudo su
+[root@guestshell guestshell]# yum install nmap
+
+
+======
+If error:
+https://dev.to/franzwong/fix-cannot-find-a-valid-baseurl-for-repo-in-centos-1h07
+
+
+[root@guestshell guestshell]# repo_file=/etc/yum.repos.d/CentOS-Base.repo
+[root@guestshell guestshell]# cp ${repo_file} ~/CentOS-Base.repo.backup
+[root@guestshell guestshell]# sudo sed -i s/#baseurl/baseurl/ ${repo_file}
+[root@guestshell guestshell]# sudo sed -i s/mirrorlist.centos.org/vault.centos.org/ ${repo_file}
+[root@guestshell guestshell]# sudo sed -i s/mirror.centos.org/vault.centos.org/ ${repo_file}
+[root@guestshell guestshell]# sudo yum clean all
+Loaded plugins: fastestmirror
+Cleaning repos: base extras updates
+Cleaning up everything
+[root@guestshell guestshell]# yum install nmap
+[root@guestshell guestshell]# nmap -v 8.8.8.8
+
+====
+
+[root@guestshell guestshell]# yum install -y vim 
+
+====
+
+vscode open folder
+createe new
+{
+    "ietf-interfaces:interface": {
+        "name": "Loopback2",
+        "description": "Configured by RESTCONF",
+        "type": "iana-if-type:softwareLoopback",
+        "enabled": true,
+        "ietf-ip:ipv4": {
+            "address": [
+                {
+                    "ip": "2.2.2.2",
+                    "netmask": "255.255.255.0"
+                }
+            ]
+        }
+    },
+    "ietf-interfaces:interface": {
+        "name": "Loopback3",
+        "description": "Configured by RESTCONF",
+        "type": "iana-if-type:softwareLoopback",
+        "enabled": true,
+        "ietf-ip:ipv4": {
+            "address": [
+                {
+                    "ip": "3.3.3.3",
+                    "netmask": "255.255.255.0"
+                }
+            ]
+        }
+    },
+    "ietf-interfaces:interface": {
+        "name": "Loopback4",
+        "description": "Configured by RESTCONF",
+        "type": "iana-if-type:softwareLoopback",
+        "enabled": true,
+        "ietf-ip:ipv4": {
+            "address": [
+                {
+                    "ip": "4.4.4.4",
+                    "netmask": "255.255.255.0"
+                }
+            ]
+        }
+    }    
+}
+
+
+
+edit blue on post
+https://192.168.102.11/restconf/data/ietf-interfaces:interfaces
+
+
+AHBS
+Auth API KEY (Basic muna
+Header yang
+
+
+====
+
+On python 
+import cli
+
+commands = [
+    "show ip int brief",
+]
+
+for c in commands:
+    cli.executep(c)
+
+===
+
+On VSC
+>>> import cli
+
+commands = [
+>>> 
+>>> commands = [
+...     "show ip int brief",
+... ]
+>>> 
+>>> for c in commands:
+...     cli.executep(c)
+
+
+
+===
+
+On Linux
+[root@guestshell guestshell]# pwd
+/home/guestshell
+[root@guestshell guestshell]# touch makeloop.py
+[root@guestshell guestshell]# ls
+makeloop.py
+[root@guestshell guestshell]# yum install -y nano
+Naghang
+
+===
+
+open on VSC eem2k...
+line 46 to 62 on R1 port
+67 to 82 remove
+Duplicate postman
+
+
+==
+
+open yvm.ova 2 
+
+lin2: tell linux2 to use HSRP GW
+sudo su
+ifconfig eth0 192.168.102.100 netmask 255.255.255.0 up
+route add default gw 192.168.102.123
+
+lin3: tell linux2 to use GLBP GW
+sudo su
+ifconfig eth0 192.168.103.100 netmask 255.255.255.0 up
+route add default gw 192.168.103.123
+
+IPSLA
+F5 loadbalancer
+line 8 - 104
+TAKE note:
+ Track
+ freq 
+ip  sla  schedule 1 life forever start-time now  >>>> REMEMBER
+track  1  ip sla 1  >>> check track
+  delay down 6 up 3 >>> 6 secs down | 3 sec up
+standby 2 track 1 decrement 60 >> check standby and track
+=========
+Ebay
+exampassguru
+ccna exam 100
+=========
+
+R1-python#term monitor 
+R1-python#debug ip icmp
+ICMP packet debugging is on
+R1-python#
+*Dec  7 11:33:40.789: ICMP: echo reply sent, src 8.8.8.8, dst 8.8.8.8, topology BASE, dscp 0 topoid 0
+*Dec  7 11:33:40.789: ICMP: echo reply rcvd, src 8.8.8.8, dst 8.8.8.8, topology BASE, dscp 0 topoid 0
+*Dec  7 11:34:10.788: ICMP: echo reply sent, src 8.8.8.8, dst 8.8.8.8, topology BASE, dscp 0 topoid 0
+*Dec  7 11:34:10.789: ICMP: echo reply rcvd, src 8.8.8.8, dst 8.8.8.8, topology BASE, dscp 0 topoid 0
+
+
+R1-python#debug standby 
+HSRP debugging is on
+R1-python#
+*Dec  7 11:34:38.845: HSRP: Gi2 Grp 2 Hello  out 192.168.102.11 Active  pri 150 vIP 192.168.102.123
+*Dec  7 11:34:38.932: HSRP: Gi2 Grp 2 Hello  in  192.168.102.12 Standby pri 100 vIP 192.168.102.123
+*Dec  7 11:34:40.789: ICMP: echo reply sent, src 8.8.8.8, dst 8.8.8.8, topology BASE, dscp 0 topoid 0
+
+
+R1(config-if)#no ip route 0.0.0.0 0.0.0.0 208.8.8.2
+R2(config-if)#no ip route 0.0.0.0 0.0.0.0 208.8.8.2
+
+R1-python#show track
+Track 1
+  IP SLA 1 state
+  State is Down
+    2 changes, last change 00:00:12
+  Delay up 3 secs, down 6 secs
+  Latest operation return code: Timeout
+  Tracked by:
+    HSRP GigabitEthernet2 2
+
+R2#show standby
+GigabitEthernet2 - Group 2 (version 2)
+  State is Listen
+
+
+New Lab
+VPN lab 
+IPSLA
+
+netflow
+ntopng
+nProbe
+redis
+http://localhost:3000/
